@@ -1,0 +1,63 @@
+<!-- add-provider.component.html -->
+<div>
+    <form>
+      <h3>Website</h3>
+      <div>
+        <label>Link:</label>
+        <input [(ngModel)]="website.link" name="websiteLink">
+      </div>
+      <h3>Article</h3>
+      <div>
+        <label>Use:</label>
+        <input [(ngModel)]="article.use" name="articleUse">
+      </div>
+      <div>
+        <label>Type:</label>
+        <input [(ngModel)]="article.type" name="articleType">
+      </div>
+      <div>
+        <label>Attribute:</label>
+        <input [(ngModel)]="article.attribute" name="articleAttribute">
+      </div>
+      <div>
+        <label>Value:</label>
+        <input [(ngModel)]="article.value" name="articleValue">
+      </div>
+      <h3>Paragraph</h3>
+      <div>
+        <label>Use:</label>
+        <input [(ngModel)]="paragraph.use" name="paragraphUse">
+      </div>
+      <div>
+        <label>Type:</label>
+        <input [(ngModel)]="paragraph.type" name="paragraphType">
+      </div>
+      <div>
+        <label>Attribute:</label>
+        <input [(ngModel)]="paragraph.attribute" name="paragraphAttribute">
+      </div>
+      <div>
+        <label>Value:</label>
+        <input [(ngModel)]="paragraph.value" name="paragraphValue">
+      </div>
+      <h3>Topic</h3>
+      <div>
+        <label>Use:</label>
+        <input [(ngModel)]="topic.use" name="topicUse">
+      </div>
+      <div>
+        <label>Type:</label>
+        <input [(ngModel)]="topic.type" name="topicType">
+      </div>
+      <div>
+        <label>Attribute:</label>
+        <input [(ngModel)]="topic.attribute" name="topicAttribute">
+      </div>
+      <div>
+        <label>Value:</label>
+        <input [(ngModel)]="topic.value" name="topicValue">
+      </div>
+      <button (click)="submitForm()">Submit</button>
+    </form>
+  </div>
+  

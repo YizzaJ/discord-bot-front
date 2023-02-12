@@ -11,4 +11,8 @@ export class MessageService {
   sendMessage(message: string) {
     return this.http.post('http://localhost:8080/topiclist', message);
   }
+
+  addProvider(message: string) {
+    return this.http.post('http://localhost:9999/add', message);
+  }
 }
