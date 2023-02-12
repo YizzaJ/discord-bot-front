@@ -1,63 +1,61 @@
-<!-- add-provider.component.html -->
 <div>
     <form>
       <h3>Website</h3>
       <div>
         <label>Link:</label>
-        <input [(ngModel)]="website.link" name="websiteLink">
+        <input [(ngModel)]="website.webSite" name="websiteLink">
       </div>
       <h3>Article</h3>
       <div>
-        <label>Use:</label>
-        <input [(ngModel)]="article.use" name="articleUse">
-      </div>
-      <div>
         <label>Type:</label>
-        <input [(ngModel)]="article.type" name="articleType">
+        <input type="text" [(ngModel)]="article.type" name="articleType" [value]="showArticleAttributeName ? 'Attribute' : article.type" [readonly]="showArticleAttributeName">
       </div>
-      <div>
-        <label>Attribute:</label>
-        <input [(ngModel)]="article.attribute" name="articleAttribute">
+      <div *ngIf="showArticleAttributeName">
+        <label>Attribute Name:</label>
+        <input [(ngModel)]="article.attributeName" name="articleAttributeName" required>
       </div>
       <div>
         <label>Value:</label>
-        <input [(ngModel)]="article.value" name="articleValue">
+        <input [(ngModel)]="article.value" name="articleValue" required>
+      </div>
+      <div>
+        <input type="checkbox" [(ngModel)]="showArticleAttributeName" (change)="toggleAttributeName('article')">
+        <label>Set as Attribute</label>
       </div>
       <h3>Paragraph</h3>
       <div>
-        <label>Use:</label>
-        <input [(ngModel)]="paragraph.use" name="paragraphUse">
-      </div>
-      <div>
         <label>Type:</label>
-        <input [(ngModel)]="paragraph.type" name="paragraphType">
+        <input type="text" [(ngModel)]="paragraph.type" name="paragraphType" [value]="showParagraphAttributeName ? 'Attribute' : paragraph.type" [readonly]="showParagraphAttributeName">
       </div>
-      <div>
-        <label>Attribute:</label>
-        <input [(ngModel)]="paragraph.attribute" name="paragraphAttribute">
+      <div *ngIf="showParagraphAttributeName">
+        <label>Attribute Name:</label>
+        <input [(ngModel)]="paragraph.attributeName" name="paragraphAttributeName" required>
       </div>
       <div>
         <label>Value:</label>
-        <input [(ngModel)]="paragraph.value" name="paragraphValue">
+        <input [(ngModel)]="paragraph.value" name="paragraphValue" required>
+      </div>
+      <div>
+        <input type="checkbox" [(ngModel)]="showParagraphAttributeName" (change)="toggleAttributeName('paragraph')">
+        <label>Set as Attribute</label>
       </div>
       <h3>Topic</h3>
       <div>
-        <label>Use:</label>
-        <input [(ngModel)]="topic.use" name="topicUse">
-      </div>
-      <div>
         <label>Type:</label>
-        <input [(ngModel)]="topic.type" name="topicType">
+        <input type="text" [(ngModel)]="topic.type" name="topicType" [value]="showTopicAttributeName ? 'Attribute' : topic.type" [readonly]="showTopicAttributeName">
       </div>
-      <div>
-        <label>Attribute:</label>
-        <input [(ngModel)]="topic.attribute" name="topicAttribute">
+      <div *ngIf="showTopicAttributeName">
+        <label>Attribute Name:</label>
+        <input [(ngModel)]="topic.attributeName" name="topicAttributeName" required>
       </div>
       <div>
         <label>Value:</label>
-        <input [(ngModel)]="topic.value" name="topicValue">
+        <input [(ngModel)]="topic.value" name="topicValue" required>
       </div>
-      <button (click)="submitForm()">Submit</button>
-    </form>
-  </div>
-  
+      <div>
+        <input type="checkbox" [(ngModel)]="showTopicAttributeName" (change)="toggleAttributeName('topic')">
+        <label>Set as Attribute</label>
+    </div>
+    <button (click)="submitForm()">Submit</button>
+  </form>
+</div>

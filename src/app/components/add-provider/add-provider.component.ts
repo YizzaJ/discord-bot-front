@@ -7,26 +7,29 @@ import { MessageService } from 'src/app/services/message-service/message-service
   styleUrls: ['./add-provider.component.css']
 })
 export class AddProviderComponent implements OnInit {
+  showArticleAttributeName = false;
+  showParagraphAttributeName = false;
+  showTopicAttributeName = false;
 
   website = {
-    link: 'websiteA'
+    webSite: 'https://www.antena3.com/noticias/'
   };
   article = {
-    use: 'u1',
-    type: 't1',
-    attribute: 'a1',
-    value: 'v1'
+    use: 'Article',
+    type: 'Tag',
+    attributeName: '',
+    value: 'article'
   };
   paragraph = {
-    use: 'u2',
+    use: 'FirstParagraph',
     type: 't2',
-    attribute: 'a2',
+    attributeName: 'a2',
     value: 'v2'
   };
   topic = {
-    use: 'u3',
+    use: 'Topic',
     type: 't3',
-    attribute: 'a3',
+    attributeName: 'a3',
     value: 'v3'
   };
 
@@ -34,15 +37,25 @@ export class AddProviderComponent implements OnInit {
 
   ngOnInit() {
   }
+  toggleAttributeName(category: string) {
+    switch (category) {
+      case "article":
+        this.showArticleAttributeName = !this.showArticleAttributeName;
+        break;
+      case "paragraph":
+        this.showParagraphAttributeName = !this.showParagraphAttributeName;
+        break;
+      case "topic":
+        this.showTopicAttributeName = !this.showTopicAttributeName;
+        break;
+      default:
+        break;
+    }
+  }
+
 
   submitForm() {
-    const data = {
-      website: this.website,
-      article: this.article,
-      paragraph: this.paragraph,
-      topic: this.topic
-    };
-    console.log(JSON.stringify(data));
-    this.messageService.addProvider(JSON.stringify(data)).subscribe();
+    console.log(JSON.stringify([[this.website, [this.article],[ this.paragraph], [this.topic]]],null,2));
+    this.messageService.addProvider(JSON.stringify([[this.website, [this.article],[ this.paragraph], [this.topic]]],null,2)).subscribe();
   }
 }
