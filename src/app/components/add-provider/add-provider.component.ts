@@ -10,6 +10,9 @@ export class AddProviderComponent implements OnInit {
   showArticleAttributeName = false;
   showParagraphAttributeName = false;
   showTopicAttributeName = false;
+  showArticleValue = false;
+  showParagraphValue = false;
+  showTopicValue = false;
 
   website = {
     webSite: 'https://www.antena3.com/noticias/'
@@ -40,21 +43,61 @@ export class AddProviderComponent implements OnInit {
 
   ngOnInit() {
   }
-  toggleAttributeName(category: string) {
+
+  toggleArticle(category: string) {
     switch (category) {
-      case "article":
-        this.showArticleAttributeName = !this.showArticleAttributeName;
+      case "":
+        this.showArticleValue = false;
+        this.showArticleAttributeName = false;
+        this.article.value = "";
         break;
-      case "paragraph":
-        this.showParagraphAttributeName = !this.showParagraphAttributeName;
-        break;
-      case "topic":
-        this.showTopicAttributeName = !this.showTopicAttributeName;
+      case "Attribute":
+        this.showArticleAttributeName = true;
         break;
       default:
+        this.showArticleValue = true;
+        this.showArticleAttributeName = false;
         break;
     }
   }
+  toggleParagraph(category: string) {
+    switch (category) {
+      case "":
+        this.showParagraphValue = false;
+        this.showParagraphAttributeName = false;
+        this.article.value = "";
+        break;
+      case "Attribute":
+        this.showParagraphAttributeName = true;
+        break;
+      default:
+        this.showParagraphValue = true;
+        this.showParagraphAttributeName = false;
+        break;
+    }
+  }
+  toggleTopic(category: string) {
+    switch (category) {
+      case "":
+        this.showTopicValue = false;
+        this.showTopicAttributeName = false;
+        this.article.value = "";
+        break;
+      case "Attribute":
+        this.showTopicAttributeName = true;
+        break;
+      default:
+        this.showTopicValue = true;
+        this.showTopicAttributeName = false;
+        break;
+    }
+  }
+  
+  toggleAttributeName(category: string) {
+
+  }
+
+
 
 
   submitForm() {
