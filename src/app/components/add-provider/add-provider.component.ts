@@ -14,6 +14,9 @@ export class AddProviderComponent implements OnInit {
   website = {
     webSite: 'https://www.antena3.com/noticias/'
   };
+  websiteName = {
+    webSiteName: 'Antena 3'
+  };
   article = {
     use: 'Article',
     type: 'Tag',
@@ -22,15 +25,15 @@ export class AddProviderComponent implements OnInit {
   };
   paragraph = {
     use: 'FirstParagraph',
-    type: 't2',
-    attributeName: 'a2',
-    value: 'v2'
+    type: 'Class',
+    attributeName: '',
+    value: 'article-main__description'
   };
   topic = {
     use: 'Topic',
-    type: 't3',
-    attributeName: 'a3',
-    value: 'v3'
+    type: 'Class',
+    attributeName: '',
+    value: 'menu-main__link menu-main__link--level1'
   };
 
   constructor(private messageService: MessageService) { }
@@ -56,6 +59,6 @@ export class AddProviderComponent implements OnInit {
 
   submitForm() {
     console.log(JSON.stringify([[this.website, [this.article],[ this.paragraph], [this.topic]]],null,2));
-    this.messageService.addProvider(JSON.stringify([[this.website, [this.article],[ this.paragraph], [this.topic]]],null,2)).subscribe();
+    this.messageService.addProvider(JSON.stringify([[this.website, this.websiteName, [this.article],[ this.paragraph], [this.topic]]],null,2)).subscribe();
   }
 }
