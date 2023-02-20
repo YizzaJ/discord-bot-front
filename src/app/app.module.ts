@@ -14,7 +14,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { SidenavComponent } from './shared/sidenav/sidenav.component';
 import { AddProviderComponent } from './components/add-provider/add-provider.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { SidebarButtonComponent } from './shared/sidebar-button/sidebar-button.component';
+
+
 
 
 @NgModule({
@@ -22,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     MessageButtonComponent,
     SidenavComponent,
-    AddProviderComponent
+    AddProviderComponent,
+    SidebarButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,8 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule,
     MatIconModule,
     MatListModule,
+    ReactiveFormsModule,
+    RouterModule,
     FormsModule
   ],
   providers: [MessageService],

@@ -1,0 +1,57 @@
+.container {
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    background-color: #737949;
+    overflow: hidden;
+  }
+  
+  .sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 100%;
+    background-color: #495579;
+    overflow: hidden;
+  }
+
+  .sidebar-button {
+    width: 100%;
+    height: 40px;
+    background-color: #495579;
+    border-right: hidden;
+    border-left: hidden;
+    border-top: hidden;
+    border-width: 0.005px;
+    border-color: #FFFBEB;
+    color: #ffffff;
+  }
+
+  .content {
+    display: flex;
+    height: 100%;
+    align-items: start;
+    justify-content: start;
+    padding-left: 15px;
+    background-color: #FFFBEB;
+    color: black
+  }
+  
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #263159;
+  }
+  
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #263159;
+  }

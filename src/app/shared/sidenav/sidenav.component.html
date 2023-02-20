@@ -1,1 +1,25 @@
-<p>sidenav works!</p>
+<mat-toolbar class="header">
+    <div>
+        <button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+
+    </mat-toolbar>
+    <mat-sidenav-container class="container">
+      <mat-sidenav #sidenav mode="side" opened class="sidenav"
+                   [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
+                   [fixedBottomGap]="options.value.bottom">
+
+      
+        <button class="sidebar-button" (click)="changeContent('provider')">Add Provider</button>
+        <button class="sidebar-button" (click)="changeContent('max-news')">Max noticias</button>
+
+    </mat-sidenav>
+  
+      <mat-sidenav-content class="content">
+        <app-add-provider *ngIf="showAddProvider"></app-add-provider>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  
+    <mat-toolbar class="footer">Footer</mat-toolbar>
