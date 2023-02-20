@@ -17,6 +17,7 @@ import { AddProviderComponent } from './components/add-provider/add-provider.com
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SidebarButtonComponent } from './shared/sidebar-button/sidebar-button.component';
+import { MaxNewsComponent } from './components/max-news/max-news.component';
 
 
 
@@ -27,7 +28,8 @@ import { SidebarButtonComponent } from './shared/sidebar-button/sidebar-button.c
     MessageButtonComponent,
     SidenavComponent,
     AddProviderComponent,
-    SidebarButtonComponent
+    SidebarButtonComponent,
+    MaxNewsComponent
   ],
   imports: [
     BrowserModule,

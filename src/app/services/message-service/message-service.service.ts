@@ -15,4 +15,12 @@ export class MessageService {
   addProvider(message: string) {
     return this.http.post('http://localhost:9999/add', message);
   }
+
+  setPublicMax(message: string) {
+    return this.http.post('http://localhost:9999/maxPublic', message);
+  }
+
+  setPrivateMax(message: string) {
+    return this.http.post('http://localhost:9999/maxPrivate', message);
+  }
 }
