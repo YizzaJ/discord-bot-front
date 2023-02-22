@@ -1,28 +1,13 @@
 <div>
-    <form #loginForm="ngForm">
-        <h3>Maximas noticias privadas a mostrar.</h3>
-        <div>
-            <p>El numero debe estar entre 1 y 20.</p>
-        </div>
-        <div>
-          <label>Numero:</label>
-          <input [(ngModel)]="maximums.private" name="maxPrivNews">
-        </div>
-        
+  <form #loginForm="ngForm">
+      <h3>Maximas noticias a mostrar.</h3>
+      <div>
+          <p>El numero debe estar entre 1 y 15.</p>
+      </div>
+      <div>
+        <label>Numero:</label>
+        <input [(ngModel)]="maximums.private" name="maxPrivNews" type="number" min="1" max="15">
+      </div>
     </form>
     <button (click)="submitPrivateForm()" [disabled]="loginForm.form.invalid">Submit</button>
-  </div>
-  <div>
-    <form #loginForm="ngForm">
-        <h3>Maximas noticias publicas a mostrar.</h3>
-        <div>
-            <p>El numero debe estar entre 1 y 10.</p>
-        </div>
-        <div>
-          <label>Numero:</label>
-          <input [(ngModel)]="maximums.public" name="maxPubNews">
-        </div>
-        
-    </form>
-    <button (click)="submitPublicForm()" [disabled]="loginForm.form.invalid">Submit</button>
   </div>

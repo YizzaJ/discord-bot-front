@@ -9,15 +9,15 @@ import { MessageService } from 'src/app/services/message-service/message-service
 export class MaxNewsComponent {
 
   maximums = {
-    private: 1,
-    public: 1
+    private: 5,
+    public: 5
   };
 
   constructor(private messageService: MessageService) { }
 
   submitPrivateForm() {
     console.log(JSON.stringify([this.maximums.private],null,2));
-    this.messageService.setPrivateMax(JSON.stringify([this.maximums.private],null,2)).subscribe();
+    this.messageService.setPrivateMax(JSON.stringify(this.maximums.private,null,2)).subscribe();
   }
 
   submitPublicForm() {

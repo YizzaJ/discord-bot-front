@@ -13,14 +13,14 @@ export class MessageService {
   }
 
   addProvider(message: string) {
-    return this.http.post('http://localhost:9999/add', message);
+    return this.http.post('http://localhost:9999/add-provider', message);
   }
 
   setPublicMax(message: string) {
-    return this.http.post('http://localhost:9999/maxPublic', message);
+    return this.http.post('http://localhost:9999/max-public', message);
   }
 
   setPrivateMax(message: string) {
-    return this.http.post('http://localhost:9999/maxPrivate', message);
+    return this.http.post('http://localhost:9999/max-private', message);
   }
 }
