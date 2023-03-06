@@ -14,30 +14,26 @@ export class AddProviderComponent implements OnInit {
   showParagraphValue = false;
   showTopicValue = false;
 
-  website = {
-    webSite: 'https://www.antena3.com/noticias/'
-  };
-  websiteName = {
-    webSiteName: 'Antena 3'
-  };
-  article = {
-    use: 'Article',
-    type: 'Tag',
-    attributeName: '',
-    value: 'article'
-  };
-  paragraph = {
-    use: 'FirstParagraph',
-    type: 'Class',
-    attributeName: '',
-    value: 'article-main__description'
-  };
-  topic = {
-    use: 'Topic',
-    type: 'Class',
-    attributeName: '',
-    value: 'menu-main__link menu-main__link--level1'
-  };
+  provider = {
+    webSite: 'https://www.antena3.com/noticias/',
+    webSiteName: 'Antena 3',
+
+    usoArticulo: 'Article',
+    tipoArticulo: 'Tag',
+    attributeNameArticulo: '',
+    valorArticulo: 'article',
+
+    usoParrafo: 'FirstParagraph',
+    tipoParrafo: 'Class',
+    attributeNameParrafo: '',
+    valorParrafo: 'article-main__description',
+  
+    usoTopic: 'Topic',
+    tipoTopic: 'Class',
+    attributeNameTopic: '',
+    valorTopic: 'menu-main__link menu-main__link--level1'
+  
+};
 
   constructor(private messageService: MessageService) { }
 
@@ -49,7 +45,7 @@ export class AddProviderComponent implements OnInit {
       case "":
         this.showArticleValue = false;
         this.showArticleAttributeName = false;
-        this.article.value = "";
+        this.provider.valorArticulo = "";
         break;
       case "Attribute":
         this.showArticleAttributeName = true;
@@ -65,7 +61,7 @@ export class AddProviderComponent implements OnInit {
       case "":
         this.showParagraphValue = false;
         this.showParagraphAttributeName = false;
-        this.article.value = "";
+        this.provider.valorParrafo = "";
         break;
       case "Attribute":
         this.showParagraphAttributeName = true;
@@ -81,7 +77,7 @@ export class AddProviderComponent implements OnInit {
       case "":
         this.showTopicValue = false;
         this.showTopicAttributeName = false;
-        this.article.value = "";
+        this.provider.valorTopic = "";
         break;
       case "Attribute":
         this.showTopicAttributeName = true;
@@ -101,7 +97,13 @@ export class AddProviderComponent implements OnInit {
 
 
   submitForm() {
-    console.log(JSON.stringify([[this.website, [this.article],[ this.paragraph], [this.topic]]],null,2));
-    this.messageService.addProvider(JSON.stringify([[this.website, this.websiteName, [this.article],[ this.paragraph], [this.topic]]],null,2)).subscribe();
+
+
+
+    var jsonProvider = JSON.stringify(this.provider,null,2)
+
+    console.log(jsonProvider);
+
+    this.messageService.addProvider(jsonProvider).subscribe();
   }
 }

@@ -3,16 +3,16 @@
       <h3>Website</h3>
       <div>
         <label>Link:</label>
-        <input [(ngModel)]="website.webSite" name="websiteLink">
+        <input [(ngModel)]="provider.webSite" name="websiteLink">
       </div>
       <div>
         <label>Name:</label>
-        <input [(ngModel)]="websiteName.webSiteName" name="websiteName">
+        <input [(ngModel)]="provider.webSiteName" name="websiteName">
       </div>
       <h3>Article</h3>
       <div>
         <label>Type:</label>
-        <select [(ngModel)]="article.type" (change)="toggleArticle(article.type)" name="articleType">
+        <select [(ngModel)]="provider.tipoArticulo" (change)="toggleArticle(provider.tipoArticulo)" name="providerType">
           <option value="">Select</option>
           <option value="Tag">Tag</option>
           <option value="Class">Class</option>
@@ -21,16 +21,16 @@
       </div>
       <div *ngIf="showArticleAttributeName">
         <label>Attribute Name:</label>
-        <input [(ngModel)]="article.attributeName" name="articleAttributeName" required>
+        <input [(ngModel)]="provider.attributeNameArticulo" name="providerAttributeName" required>
       </div>
       <div *ngIf="showArticleValue">
         <label>Value:</label>
-        <input [(ngModel)]="article.value" name="articleValue" required>
+        <input [(ngModel)]="provider.valorArticulo" name="providerValue" required>
       </div>
       <h3>Paragraph</h3>
       <div>
         <label>Type:</label>
-        <select [(ngModel)]="paragraph.type" (change)="toggleParagraph(paragraph.type)" name="paragraphType">
+        <select [(ngModel)]="provider.tipoParrafo" (change)="toggleParagraph(provider.tipoParrafo)" name="providerType">
           <option value="">Select</option>
           <option value="Tag">Tag</option>
           <option value="Class">Class</option>
@@ -39,16 +39,16 @@
       </div>
       <div *ngIf="showParagraphAttributeName">
         <label>Attribute Name:</label>
-        <input [(ngModel)]="paragraph.attributeName" name="paragraphAttributeName" required>
+        <input [(ngModel)]="provider.attributeNameParrafo" name="providerAttributeName" required>
       </div>
       <div *ngIf="showParagraphValue">
         <label>Value:</label>
-        <input [(ngModel)]="paragraph.value" name="paragraphValue" required>
+        <input [(ngModel)]="provider.valorParrafo" name="providerValue" required>
       </div>
       <h3>Topic</h3>
       <div>
         <label>Type:</label>
-        <select [(ngModel)]="topic.type"  (change)="toggleTopic(topic.type)"name="topicType">
+        <select [(ngModel)]="provider.tipoTopic"  (change)="toggleTopic(provider.tipoTopic)"name="providerType">
           <option value="">Select</option>
           <option value="Tag">Tag</option>
           <option value="Class">Class</option>
@@ -57,11 +57,11 @@
       </div>
       <div *ngIf="showTopicAttributeName">
         <label>Attribute Name:</label>
-        <input [(ngModel)]="topic.attributeName" name="topicAttributeName" required>
+        <input [(ngModel)]="provider.attributeNameTopic" name="providerAttributeName" required>
       </div>
       <div *ngIf="showTopicValue">
         <label>Value:</label>
-        <input [(ngModel)]="topic.value" name="topicValue" required>
+        <input [(ngModel)]="provider.valorTopic" name="providerValue" required>
       </div>
   </form>
   <button (click)="submitForm()" [disabled]="loginForm.form.invalid">Submit</button>
