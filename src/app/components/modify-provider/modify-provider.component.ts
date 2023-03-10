@@ -3,11 +3,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MessageService } from 'src/app/services/message-service/message-service.service';
 
 @Component({
-  selector: 'app-add-provider',
-  templateUrl: './add-provider.component.html',
-  styleUrls: ['./add-provider.component.css'],
+  selector: 'app-modify-provider',
+  templateUrl: './modify-provider.component.html',
+  styleUrls: ['./modify-provider.component.css']
 })
-export class AddProviderComponent implements OnInit {
+export class ModifyProviderComponent implements OnInit {
+  provider: any;
   showArticleAttributeName = false;
   showParagraphAttributeName = false;
   showTopicAttributeName = false;
@@ -15,32 +16,55 @@ export class AddProviderComponent implements OnInit {
   showParagraphValue = false;
   showTopicValue = false;
 
-  provider = {
-    webSite: 'https://www.antena3.com/noticias/',
-    webSiteName: 'Antena 3',
+
+  newProvider = {
+    webSite: '',
+    webSiteName: '',
 
     usoArticulo: 'Article',
-    tipoArticulo: 'Tag',
+    tipoArticulo: '',
     attributeNameArticulo: '',
-    valorArticulo: 'article',
+    valorArticulo: '',
 
     usoParrafo: 'FirstParagraph',
-    tipoParrafo: 'Class',
+    tipoParrafo: '',
     attributeNameParrafo: '',
-    valorParrafo: 'article-main__description',
-  
-    usoTopic: 'Topic',
-    tipoTopic: 'Class',
-    attributeNameTopic: '',
-    valorTopic: 'menu-main__link menu-main__link--level1'
-  
-};
+    valorParrafo: '',
 
-  constructor(private dialogRef: MatDialogRef<AddProviderComponent>,
+    usoTopic: 'Topic',
+    tipoTopic: '',
+    attributeNameTopic: '',
+    valorTopic: ''
+
+  };
+
+
+
+  constructor(private dialogRef: MatDialogRef<ModifyProviderComponent>,
     private messageService: MessageService,
-    @Inject(MAT_DIALOG_DATA) public data: { serverID: string}) { }
+    @Inject(MAT_DIALOG_DATA) public data: { serverID: string, provider: any }) {
+    this.provider = data.provider;
+
+}
+
+
+
 
   ngOnInit() {
+    this.newProvider.webSite = this.data.provider.webSite;
+    this.newProvider.webSiteName = this.data.provider.webSiteName,
+    this.newProvider.usoArticulo = 'Article',
+    this.newProvider.tipoArticulo =  this.data.provider.tipoArticulo,
+    this.newProvider.attributeNameArticulo =  this.data.provider.attributeNameArticulo,
+    this.newProvider.valorArticulo =  this.data.provider.valorArticulo,
+    this.newProvider.usoParrafo =  'FirstParagraph',
+    this.newProvider.tipoParrafo =  this.data.provider.tipoParrafo,
+    this.newProvider.attributeNameParrafo = this.data.provider.attributeNameParrafo,
+    this.newProvider.valorParrafo =  this.data.provider.valorParrafo,
+    this.newProvider.usoTopic =  'Topic',
+    this.newProvider.tipoTopic =  this.data.provider.tipoTopic,
+    this.newProvider.attributeNameTopic =  this.data.provider.attributeNameTopic,
+    this.newProvider.valorTopic =  this.data.provider.valorTopic
   }
 
   toggleArticle(category: string) {
@@ -48,7 +72,7 @@ export class AddProviderComponent implements OnInit {
       case "":
         this.showArticleValue = false;
         this.showArticleAttributeName = false;
-        this.provider.valorArticulo = "";
+        this.newProvider.valorArticulo = "";
         break;
       case "Attribute":
         this.showArticleAttributeName = true;
@@ -64,7 +88,7 @@ export class AddProviderComponent implements OnInit {
       case "":
         this.showParagraphValue = false;
         this.showParagraphAttributeName = false;
-        this.provider.valorParrafo = "";
+        this.newProvider.valorParrafo = "";
         break;
       case "Attribute":
         this.showParagraphAttributeName = true;
@@ -80,7 +104,7 @@ export class AddProviderComponent implements OnInit {
       case "":
         this.showTopicValue = false;
         this.showTopicAttributeName = false;
-        this.provider.valorTopic = "";
+        this.newProvider.valorTopic = "";
         break;
       case "Attribute":
         this.showTopicAttributeName = true;
@@ -91,17 +115,21 @@ export class AddProviderComponent implements OnInit {
         break;
     }
   }
-  
+
   toggleAttributeName(category: string) {
 
   }
 
+
+
+
   submitForm() {
     this.dialogRef.close(true);
-    var jsonProvider = JSON.stringify(this.provider,null,2)
+
+    var jsonProvider = JSON.stringify(this.newProvider, null, 2)
 
     console.log(jsonProvider);
 
-    this.messageService.addProvider(this.data.serverID, jsonProvider).subscribe();
+    this.messageService.modifyProvider(this.data.serverID, jsonProvider).subscribe();
   }
 }

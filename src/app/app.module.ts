@@ -18,7 +18,19 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SidebarButtonComponent } from './shared/sidebar-button/sidebar-button.component';
 import { MaxNewsComponent } from './components/max-news/max-news.component';
-
+import { LogInComponent } from './components/log-in/log-in.component';
+import { AuthService } from './services/auth/auth.service';
+import { AuthConfigService } from './services/auth-config/auth-config.service';
+import { Login2Component } from './components/log-in2/log-in2.component';
+import { CallbackComponent } from './components/callback/callback.component';
+import { LoginComponent } from './components/login/login.component';
+import { UserComponent } from './shared/user/user.component';
+import { ProviderTableComponent } from './components/provider-table/provider-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { ModifyProviderComponent } from './components/modify-provider/modify-provider.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './shared/dialog/dialog.component';
+import { RemoveProviderComponent } from './components/remove-provider/remove-provider.component';
 
 
 
@@ -29,7 +41,16 @@ import { MaxNewsComponent } from './components/max-news/max-news.component';
     SidenavComponent,
     AddProviderComponent,
     SidebarButtonComponent,
-    MaxNewsComponent
+    MaxNewsComponent,
+    LogInComponent,
+    Login2Component,
+    CallbackComponent,
+    LoginComponent,
+    UserComponent,
+    ProviderTableComponent,
+    ModifyProviderComponent,
+    DialogComponent,
+    RemoveProviderComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +63,11 @@ import { MaxNewsComponent } from './components/max-news/max-news.component';
     MatListModule,
     ReactiveFormsModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatDialogModule
   ],
-  providers: [MessageService],
+  providers: [MessageService, AuthService, AuthConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

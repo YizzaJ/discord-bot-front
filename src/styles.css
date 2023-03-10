@@ -1,10 +1,15 @@
-@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 
 .sidenav-container {
     height: 100%;
   }
   
-  .sidenav {
-    height: calc(100% - 64px);
-  }
+.sidenav {
+  height: calc(100% - 64px);
+}
+
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-color: #FFFBEB;
+
+}

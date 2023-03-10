@@ -12,15 +12,18 @@
                    [fixedBottomGap]="options.value.bottom">
 
       
-        <button class="sidebar-button" (click)="changeContent('provider')">Add Provider</button>
-        <button class="sidebar-button" (click)="changeContent('max-news')">Max noticias</button>
+        <!-- <button class="sidebar-button" (click)="changeContent('provider')">Add Provider</button> -->
+        <button class="sidebar-button" (click)="changeContent('max-news')">Maximo de noticias a mostrar</button>
+        <button class="sidebar-button" (click)="changeContent('manage-providers')">Gestionar proveedores</button>
 
     </mat-sidenav>
   
       <mat-sidenav-content class="content">
         <app-add-provider *ngIf="showAddProvider"></app-add-provider>
         <app-max-news *ngIf="showMaxNews"></app-max-news>
+        <app-provider-table *ngIf="showManagement" [serverID]=serverID></app-provider-table>
+
       </mat-sidenav-content>
     </mat-sidenav-container>
   
-    <mat-toolbar class="footer">Footer</mat-toolbar>
+    <mat-toolbar class="footer"><app-user [image]=image [name]=name [discriminator]=discriminator></app-user></mat-toolbar>
