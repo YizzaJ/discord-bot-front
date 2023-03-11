@@ -1,5 +1,81 @@
 <div>
   <form #loginForm="ngForm">
+    <h3>Website</h3>
+    <div>
+      <label>Link:</label>
+      <input [(ngModel)]="provider.webSite" name="websiteLink">
+    </div>
+    <div>
+      <label>Name:</label>
+      <input [(ngModel)]="provider.webSiteName" name="websiteName">
+    </div>
+
+    <h3>Article</h3>
+    <div>
+      <label>Type:</label>
+      <select [(ngModel)]="provider.tipoArticulo" (change)="toggleArticle(provider.tipoArticulo)"
+        name="providerArticleType">
+        <option value="">Select</option>
+        <option value="Tag">Tag</option>
+        <option value="Class">Class</option>
+        <option value="Attribute">Attribute</option>
+      </select>
+    </div>
+    <div>
+      <label>Value:</label>
+      <input [disabled]="!showArticleValue" [(ngModel)]="provider.valorArticulo" name="providerValue" required>
+    </div>
+    <div>
+      <label>Attribute Name:</label>
+      <input [disabled]="!showArticleAttributeName" [(ngModel)]="provider.attributeNameArticulo"
+        name="providerAttributeName" required>
+    </div>
+
+    <h3>Paragraph</h3>
+    <div>
+      <label>Type:</label>
+      <select [(ngModel)]="provider.tipoParrafo" (change)="toggleParagraph(provider.tipoParrafo)" name="providerType">
+        <option value="">Select</option>
+        <option value="Tag">Tag</option>
+        <option value="Class">Class</option>
+        <option value="Attribute">Attribute</option>
+      </select>
+    </div>
+    <div>
+      <label>Value:</label>
+      <input [disabled]="!showParagraphValue" [(ngModel)]="provider.valorParrafo" name="providerValue" required>
+    </div>
+    <div>
+      <label>Attribute Name:</label>
+      <input [disabled]="!showParagraphAttributeName" [(ngModel)]="provider.attributeNameParrafo" name="providerAttributeName" required>
+    </div>
+
+    <h3>Topic</h3>
+    <div>
+      <label>Type:</label>
+      <select [(ngModel)]="provider.tipoTopic" (change)="toggleTopic(provider.tipoTopic)" name="providerType">
+        <option value="">Select</option>
+        <option value="Tag">Tag</option>
+        <option value="Class">Class</option>
+        <option value="Attribute">Attribute</option>
+      </select>
+    </div>
+    <div>
+      <label>Value:</label>
+      <input [disabled]="!showTopicValue" [(ngModel)]="provider.valorTopic" name="providerValue" required>
+    </div>
+    <div>
+      <label>Attribute Name:</label>
+      <input [disabled]="!showTopicAttributeName" [(ngModel)]="provider.attributeNameTopic" name="providerAttributeName" required>
+    </div>
+  </form>
+  <button (click)="submitForm()" [disabled]="loginForm.form.invalid">Submit</button>
+  <app-checks [error]=error *ngIf="showChecks"></app-checks>
+</div>
+
+
+<!-- <div>
+  <form #loginForm="ngForm">
       <h3>Website</h3>
       <div>
         <label>Link:</label>
@@ -65,4 +141,5 @@
       </div>
   </form>
   <button (click)="submitForm()" [disabled]="loginForm.form.invalid">Submit</button>
-</div>
+  <app-checks [error]=error *ngIf="showChecks"></app-checks>
+</div> -->

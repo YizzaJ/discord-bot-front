@@ -16,6 +16,8 @@ export class ModifyProviderComponent implements OnInit {
   showParagraphValue = false;
   showTopicValue = false;
 
+  error = "nothing";
+  showChecks = false;
 
   newProvider = {
     webSite: '',
@@ -37,6 +39,8 @@ export class ModifyProviderComponent implements OnInit {
     valorTopic: ''
 
   };
+
+
 
 
 
@@ -123,13 +127,36 @@ export class ModifyProviderComponent implements OnInit {
 
 
 
-  submitForm() {
-    this.dialogRef.close(true);
+  // async submitForm() {
+    
 
-    var jsonProvider = JSON.stringify(this.newProvider, null, 2)
+  //   var jsonProvider = JSON.stringify(this.newProvider, null, 2)
+
+  //   console.log(jsonProvider);
+
+  //   await this.messageService.modifyProvider(this.data.serverID, jsonProvider);
+  //   this.dialogRef.close(true);
+  // }
+
+  
+  async submitForm() {
+    
+    var jsonProvider = JSON.stringify(this.provider,null,2)
 
     console.log(jsonProvider);
 
-    this.messageService.modifyProvider(this.data.serverID, jsonProvider).subscribe();
+
+
+    try{
+    await this.messageService.modifyProvider(this.data.serverID, jsonProvider);
+    this.showChecks = true;
+    this.dialogRef.close(true);
+    }catch(err:any ){
+      console.error('Error modificando proveedor', err);
+      console.error(err.error)
+      this.error = err.error
+      this.showChecks = true;
+    }
+    
   }
 }

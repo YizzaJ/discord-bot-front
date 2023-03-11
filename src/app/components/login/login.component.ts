@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
@@ -7,10 +7,11 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./login.component.css']
 })
   export class LoginComponent {
+
     readonly authUrl: string;
   
-    constructor(private readonly authService: AuthenticationService) {
-      this.authUrl = authService.getAuthUrl();
+    constructor( @Inject(AuthenticationService) private auth : AuthenticationService) {
+      this.authUrl = this.auth.getAuthUrl();
     }
   }
   

@@ -17,10 +17,11 @@ export class RemoveProviderComponent {
     this.provider = data.provider
   }
 
-  onConfirm(): void {
+  async onConfirm() {
+    await this.messageService.removeProvider(this.data.serverID, this.data.provider);
     this.dialogRef.close(true);
 
-    this.messageService.removeProvider(this.data.serverID, this.data.provider).subscribe();
+    
 
   }
 }

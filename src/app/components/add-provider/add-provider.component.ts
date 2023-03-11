@@ -15,6 +15,9 @@ export class AddProviderComponent implements OnInit {
   showParagraphValue = false;
   showTopicValue = false;
 
+  error = "nothing";
+  showChecks = false;
+
   provider = {
     webSite: 'https://www.antena3.com/noticias/',
     webSiteName: 'Antena 3',
@@ -41,6 +44,7 @@ export class AddProviderComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: { serverID: string}) { }
 
   ngOnInit() {
+    // this.toggleArticle(this.provider.tipoArticulo);
   }
 
   toggleArticle(category: string) {
@@ -52,6 +56,7 @@ export class AddProviderComponent implements OnInit {
         break;
       case "Attribute":
         this.showArticleAttributeName = true;
+        this.showArticleValue = true;
         break;
       default:
         this.showArticleValue = true;
@@ -96,12 +101,25 @@ export class AddProviderComponent implements OnInit {
 
   }
 
-  submitForm() {
-    this.dialogRef.close(true);
+  async submitForm() {
+    
     var jsonProvider = JSON.stringify(this.provider,null,2)
 
     console.log(jsonProvider);
 
-    this.messageService.addProvider(this.data.serverID, jsonProvider).subscribe();
+
+
+    try{
+    await this.messageService.addProvider(this.data.serverID, jsonProvider);
+    this.showChecks = true;
+    this.dialogRef.close(true);
+    }catch(err:any ){
+      console.error('Error anadiendo proveedor', err);
+      console.error(err.error)
+      this.error = err.error
+      this.showChecks = true;
+    }
+    
   }
+
 }
