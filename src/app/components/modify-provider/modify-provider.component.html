@@ -1,0 +1,68 @@
+<div>
+    <form #loginForm="ngForm">
+        <h3>Website</h3>
+        <div>
+          <label>Link: </label>
+          <a>{{newProvider.webSite}}</a>
+        </div>
+        <div>
+          <label>Name:</label>
+          <input [(ngModel)]="newProvider.webSiteName" name="websiteName">
+        </div>
+        <h3>Article</h3>
+        <div>
+          <label>Type:</label>
+          <select [(ngModel)]="newProvider.tipoArticulo" (change)="toggleArticle(newProvider.tipoArticulo)" name="providerType">
+            <option value="">Select</option>
+            <option value="Tag">Tag</option>
+            <option value="Class">Class</option>
+            <option value="Attribute">Attribute</option>
+          </select>
+        </div>
+        <div *ngIf="showArticleAttributeName">
+          <label>Attribute Name:</label>
+          <input [(ngModel)]="newProvider.attributeNameArticulo" name="providerAttributeName" required>
+        </div>
+        <div *ngIf="showArticleValue">
+          <label>Value:</label>
+          <input [(ngModel)]="newProvider.valorArticulo" name="providerValue" required>
+        </div>
+        <h3>Paragraph</h3>
+        <div>
+          <label>Type:</label>
+          <select [(ngModel)]="newProvider.tipoParrafo" (change)="toggleParagraph(newProvider.tipoParrafo)" name="providerType">
+            <option value="">Select</option>
+            <option value="Tag">Tag</option>
+            <option value="Class">Class</option>
+            <option value="Attribute">Attribute</option>
+          </select>
+        </div>
+        <div *ngIf="showParagraphAttributeName">
+          <label>Attribute Name:</label>
+          <input [(ngModel)]="newProvider.attributeNameParrafo" name="providerAttributeName" required>
+        </div>
+        <div *ngIf="showParagraphValue">
+          <label>Value:</label>
+          <input [(ngModel)]="newProvider.valorParrafo" name="providerValue" required>
+        </div>
+        <h3>Topic</h3>
+        <div>
+          <label>Type:</label>
+          <select [(ngModel)]="newProvider.tipoTopic"  (change)="toggleTopic(newProvider.tipoTopic)"name="providerType">
+            <option value="">Select</option>
+            <option value="Tag">Tag</option>
+            <option value="Class">Class</option>
+            <option value="Attribute">Attribute</option>
+          </select>
+        </div>
+        <div *ngIf="showTopicAttributeName">
+          <label>Attribute Name:</label>
+          <input [(ngModel)]="newProvider.attributeNameTopic" name="providerAttributeName" required>
+        </div>
+        <div *ngIf="showTopicValue">
+          <label>Value:</label>
+          <input [(ngModel)]="newProvider.valorTopic" name="providerValue" required>
+        </div>
+    </form>
+    <button (click)="submitForm()" [disabled]="loginForm.form.invalid">Submit</button>
+  </div>
