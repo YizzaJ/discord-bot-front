@@ -1,0 +1,27 @@
+:host {
+    background-color: #FFFBEB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.header{
+    position: relative;
+    top: 30%; left: 40%;
+}
+
+.logo {
+    max-width: 30%;
+    max-height: 30%;
+    position: relative;
+    top: 60%; left: 40%;
+    align-items: center;
+}
+
+.discord {
+    display: block;
+    position: relative;
+    top: 30%; left: 4%;
+    margin: 0 auto;
+    width: 50%;
+  }
