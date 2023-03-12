@@ -6,8 +6,10 @@
       </div>
       <div>
         <label>Numero:</label>
-        <input [(ngModel)]="maximums.private" name="maxPrivNews" type="number" min="1" max="15">
+        <!-- <input [(ngModel)]="maximums.private" name="maxPrivNews" type="number" min="1" max="15"> -->
+        <input [(ngModel)]="maximums.private" name="maxPrivNews" type="number" min="1" max="15" #maxPrivNews="ngModel">
+
       </div>
     </form>
-    <button (click)="submitPrivateForm()" [disabled]="loginForm.form.invalid">Submit</button>
+    <button class="submit-button" (click)="submitPrivateForm()" [disabled]="loginForm.form.invalid || maxPrivNews.invalid || maximums.private > 15">Submit</button>
   </div>

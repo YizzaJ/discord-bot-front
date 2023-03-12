@@ -61,8 +61,8 @@ export class ProviderTableComponent {
   async deleteProvider(provider: string) {
     const dialogRef = this.dialog.open(RemoveProviderComponent, {
       data: { serverID: this.serverID, provider:provider },
-      width: '30%',
-      height: '30%',
+      width: '25%',
+      height: '25%',
       panelClass: 'dialog-add'
 
     });

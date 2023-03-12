@@ -19,25 +19,46 @@ export class AddProviderComponent implements OnInit {
   showChecks = false;
 
   provider = {
-    webSite: 'https://www.antena3.com/noticias/',
-    webSiteName: 'Antena 3',
+    webSite: '',
+    webSiteName: '',
 
     usoArticulo: 'Article',
-    tipoArticulo: 'Tag',
+    tipoArticulo: '',
     attributeNameArticulo: '',
-    valorArticulo: 'article',
+    valorArticulo: '',
 
     usoParrafo: 'FirstParagraph',
-    tipoParrafo: 'Class',
+    tipoParrafo: '',
     attributeNameParrafo: '',
-    valorParrafo: 'article-main__description',
+    valorParrafo: '',
   
     usoTopic: 'Topic',
-    tipoTopic: 'Class',
+    tipoTopic: '',
     attributeNameTopic: '',
-    valorTopic: 'menu-main__link menu-main__link--level1'
+    valorTopic: ''
   
 };
+
+// provider = {
+//   webSite: 'https://www.antena3.com/noticias/',
+//   webSiteName: 'Antena 3',
+
+//   usoArticulo: 'Article',
+//   tipoArticulo: 'Tag',
+//   attributeNameArticulo: '',
+//   valorArticulo: 'article',
+
+//   usoParrafo: 'FirstParagraph',
+//   tipoParrafo: 'Class',
+//   attributeNameParrafo: '',
+//   valorParrafo: 'article-main__description',
+
+//   usoTopic: 'Topic',
+//   tipoTopic: 'Class',
+//   attributeNameTopic: '',
+//   valorTopic: 'menu-main__link menu-main__link--level1'
+
+// };
 
   constructor(private dialogRef: MatDialogRef<AddProviderComponent>,
     private messageService: MessageService,
@@ -73,6 +94,7 @@ export class AddProviderComponent implements OnInit {
         break;
       case "Attribute":
         this.showParagraphAttributeName = true;
+        this.showParagraphValue = true;
         break;
       default:
         this.showParagraphValue = true;
@@ -89,16 +111,13 @@ export class AddProviderComponent implements OnInit {
         break;
       case "Attribute":
         this.showTopicAttributeName = true;
+        this.showTopicValue = true;
         break;
       default:
         this.showTopicValue = true;
         this.showTopicAttributeName = false;
         break;
     }
-  }
-  
-  toggleAttributeName(category: string) {
-
   }
 
   async submitForm() {

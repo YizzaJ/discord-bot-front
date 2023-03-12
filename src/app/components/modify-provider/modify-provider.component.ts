@@ -49,7 +49,7 @@ export class ModifyProviderComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: { serverID: string, provider: any }) {
     this.provider = data.provider;
 
-}
+  }
 
 
 
@@ -57,18 +57,22 @@ export class ModifyProviderComponent implements OnInit {
   ngOnInit() {
     this.newProvider.webSite = this.data.provider.webSite;
     this.newProvider.webSiteName = this.data.provider.webSiteName,
-    this.newProvider.usoArticulo = 'Article',
-    this.newProvider.tipoArticulo =  this.data.provider.tipoArticulo,
-    this.newProvider.attributeNameArticulo =  this.data.provider.attributeNameArticulo,
-    this.newProvider.valorArticulo =  this.data.provider.valorArticulo,
-    this.newProvider.usoParrafo =  'FirstParagraph',
-    this.newProvider.tipoParrafo =  this.data.provider.tipoParrafo,
-    this.newProvider.attributeNameParrafo = this.data.provider.attributeNameParrafo,
-    this.newProvider.valorParrafo =  this.data.provider.valorParrafo,
-    this.newProvider.usoTopic =  'Topic',
-    this.newProvider.tipoTopic =  this.data.provider.tipoTopic,
-    this.newProvider.attributeNameTopic =  this.data.provider.attributeNameTopic,
-    this.newProvider.valorTopic =  this.data.provider.valorTopic
+      this.newProvider.usoArticulo = 'Article',
+      this.newProvider.tipoArticulo = this.data.provider.tipoArticulo,
+      this.newProvider.attributeNameArticulo = this.data.provider.attributeNameArticulo,
+      this.newProvider.valorArticulo = this.data.provider.valorArticulo,
+      this.newProvider.usoParrafo = 'FirstParagraph',
+      this.newProvider.tipoParrafo = this.data.provider.tipoParrafo,
+      this.newProvider.attributeNameParrafo = this.data.provider.attributeNameParrafo,
+      this.newProvider.valorParrafo = this.data.provider.valorParrafo,
+      this.newProvider.usoTopic = 'Topic',
+      this.newProvider.tipoTopic = this.data.provider.tipoTopic,
+      this.newProvider.attributeNameTopic = this.data.provider.attributeNameTopic,
+      this.newProvider.valorTopic = this.data.provider.valorTopic
+
+    this.toggleArticle(this.newProvider.tipoArticulo);
+    this.toggleParagraph(this.newProvider.tipoParrafo);
+    this.toggleTopic(this.newProvider.tipoTopic);
   }
 
   toggleArticle(category: string) {
@@ -76,10 +80,11 @@ export class ModifyProviderComponent implements OnInit {
       case "":
         this.showArticleValue = false;
         this.showArticleAttributeName = false;
-        this.newProvider.valorArticulo = "";
+        this.provider.valorArticulo = "";
         break;
       case "Attribute":
         this.showArticleAttributeName = true;
+        this.showArticleValue = true;
         break;
       default:
         this.showArticleValue = true;
@@ -92,10 +97,11 @@ export class ModifyProviderComponent implements OnInit {
       case "":
         this.showParagraphValue = false;
         this.showParagraphAttributeName = false;
-        this.newProvider.valorParrafo = "";
+        this.provider.valorParrafo = "";
         break;
       case "Attribute":
         this.showParagraphAttributeName = true;
+        this.showParagraphValue = true;
         break;
       default:
         this.showParagraphValue = true;
@@ -108,10 +114,11 @@ export class ModifyProviderComponent implements OnInit {
       case "":
         this.showTopicValue = false;
         this.showTopicAttributeName = false;
-        this.newProvider.valorTopic = "";
+        this.provider.valorTopic = "";
         break;
       case "Attribute":
         this.showTopicAttributeName = true;
+        this.showTopicValue = true;
         break;
       default:
         this.showTopicValue = true;
@@ -128,7 +135,7 @@ export class ModifyProviderComponent implements OnInit {
 
 
   // async submitForm() {
-    
+
 
   //   var jsonProvider = JSON.stringify(this.newProvider, null, 2)
 
@@ -138,25 +145,23 @@ export class ModifyProviderComponent implements OnInit {
   //   this.dialogRef.close(true);
   // }
 
-  
+
   async submitForm() {
-    
-    var jsonProvider = JSON.stringify(this.provider,null,2)
+
+    var jsonProvider = JSON.stringify(this.provider, null, 2)
 
     console.log(jsonProvider);
-
-
-
-    try{
-    await this.messageService.modifyProvider(this.data.serverID, jsonProvider);
-    this.showChecks = true;
-    this.dialogRef.close(true);
-    }catch(err:any ){
+    
+    try {
+      await this.messageService.modifyProvider(this.data.serverID, jsonProvider);
+      this.showChecks = true;
+      this.dialogRef.close(true);
+    } catch (err: any) {
       console.error('Error modificando proveedor', err);
       console.error(err.error)
       this.error = err.error
       this.showChecks = true;
     }
-    
+
   }
 }

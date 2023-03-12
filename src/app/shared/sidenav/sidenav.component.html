@@ -13,8 +13,8 @@
 
       
         <!-- <button class="sidebar-button" (click)="changeContent('provider')">Add Provider</button> -->
-        <button class="sidebar-button" (click)="changeContent('max-news')">Maximo de noticias a mostrar</button>
-        <button class="sidebar-button" (click)="changeContent('manage-providers')">Gestionar proveedores</button>
+        <button class="sidebar-button" (click)="changeContent('max-news')" [ngClass]="{ 'selected': showMaxNews}">Maximo de noticias a mostrar</button>
+        <button class="sidebar-button" (click)="changeContent('manage-providers')" [ngClass]="{ 'selected': showManagement}">Gestionar proveedores</button>
 
     </mat-sidenav>
   

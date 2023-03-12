@@ -12,7 +12,13 @@
 }
 
 .table-header{
+    text-transform: uppercase;
     color: white;
+}
+
+.upper-buttons{
+    padding-top: 5px;
+    padding-bottom: 3px;
 }
 
 

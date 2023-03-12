@@ -21,7 +21,14 @@
 .discord {
     display: block;
     position: relative;
-    top: 30%; left: 4%;
+    top: 30%; 
+    left: 4%;
     margin: 0 auto;
-    width: 50%;
+    padding: 10px;
+    color: white;
+  }
+
+  .link{
+    text-decoration: none;
+    color: white;
   }
