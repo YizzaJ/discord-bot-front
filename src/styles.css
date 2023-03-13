@@ -49,7 +49,7 @@ input:focus {
 }
 
 input:disabled {
-  background-color: #605f5f;
+  background-color: #a7a5a5;
   border-color: #cccccc;
   color: #2a2929;
   cursor: not-allowed;
@@ -78,4 +78,10 @@ select:focus {
 
 .submit-button {
   padding: 10px;
+}
+
+h3{
+  font: Lucida Console;
+  font-size: 30px;
+  margin-left: 2px;
 }
