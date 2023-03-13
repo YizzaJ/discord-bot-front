@@ -9,11 +9,11 @@ export class MessageService {
   constructor(private http: HttpClient) { }
 
   sendMessage(message: string) {
-    return this.http.post('http://localhost:8080/topiclist', message);
+    return this.http.post('http://localhost:8080/topiclist/', message);
   }
 
   async getProviders(serverID:string): Promise<any> {
-    const url = 'http://localhost:9999/' + serverID + '/providers';
+    const url = 'http://localhost:9999/providers/' + serverID + '/complete/';
     try {
       const response = await this.http.get(url).toPromise();
       console.log(response);
@@ -24,20 +24,20 @@ export class MessageService {
     }
   }
 
-  getProviders2(serverID:string) {
-    return this.http.get<any[]>('http://localhost:9999/' + serverID + '/providers');
-  }
+  // getProviders2(serverID:string) {
+  //   return this.http.get<any[]>('http://localhost:9999/' + serverID + '/providers');
+  // }
 
-  addServer(serverID: string, message: string) {
-    return this.http.post('http://localhost:9999/add-server/' + serverID, message);
-  }
+  // addServer(serverID: string, message: string) {
+  //   return this.http.post('http://localhost:9999/add-server/' + serverID, message);
+  // }
 
   // addProvider(serverID: string, message: string) {
   //   return this.http.post('http://localhost:9999/add-provider/' + serverID, message);
   // }
 
   async addProvider(serverID: string, message: string): Promise<any> {
-    const url = 'http://localhost:9999/add-provider/' + serverID;
+    const url = 'http://localhost:9999/providers/' + serverID + "/";
     try {
       const response = await this.http.post(url, message).toPromise();
       console.log(response);
@@ -52,9 +52,9 @@ export class MessageService {
   }
 
   async modifyProvider(serverID: string, message: string): Promise<any> {
-    const url = 'http://localhost:9999/modify-provider/' + serverID;
+    const url = 'http://localhost:9999/providers/' + serverID + "/";
     try {
-      const response = await this.http.post(url, message).toPromise();
+      const response = await this.http.put(url, message).toPromise();
       console.log(response);
       return response;
     } catch (err:any) {
@@ -74,14 +74,15 @@ export class MessageService {
   async removeProvider(serverID : string, provider : string) {
     console.log(serverID)
     console.log(provider)
-    return this.http.post('http://localhost:9999/remove-provider/' + serverID + "/" + provider, null).toPromise();
+
+    return this.http.post('http://localhost:9999/providers/remove/' + serverID + "/", provider).toPromise();
   }
 
   setPublicMax(message: string) {
-    return this.http.post('http://localhost:9999/max-public', message);
+    return this.http.post('http://localhost:9999/max-public/', message);
   }
 
   setPrivateMax(message: string) {
-    return this.http.post('http://localhost:9999/max-private', message);
+    return this.http.post('http://localhost:9999/max-private/', message);
   }
 }
