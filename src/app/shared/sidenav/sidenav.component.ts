@@ -15,8 +15,10 @@ export class SidenavComponent implements OnInit {
   showManagement = false;
   name = "";
   image = "";
+  userID = "";
   discriminator = "0000";
   serverID = "1059854853721030719";
+
 
   code = '';
   options = this._formBuilder.group({
@@ -55,12 +57,14 @@ export class SidenavComponent implements OnInit {
           const storedName = localStorage.getItem('name');
           const storedImage = localStorage.getItem('image');
           const storedDiscriminator = localStorage.getItem('discriminator');
+          const storedUserID = localStorage.getItem('userID');
         
-          if (storedName && storedImage && storedDiscriminator) {
+          if (storedName && storedImage && storedDiscriminator && storedUserID) {
 
             this.name = storedName;
             this.image = storedImage;
             this.discriminator = storedDiscriminator;
+            this.userID = storedUserID;
           }
         });
       } else {
@@ -73,10 +77,12 @@ export class SidenavComponent implements OnInit {
     this.name = userInfo.username;
     this.image = "https://cdn.discordapp.com/avatars/" + userInfo.id + "/" + userInfo.avatar + ".png";
     this.discriminator = userInfo.discriminator;
+    this.userID = userInfo.id;
 
     localStorage.setItem('name', this.name);
     localStorage.setItem('image', this.image);
     localStorage.setItem('discriminator', this.discriminator);
+    localStorage.setItem('userID', this.userID);
   }
 
 

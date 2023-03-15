@@ -1,3 +1,8 @@
+<select [(ngModel)]="serverID" (change)="loadTable(serverID)" class="server-select">
+  <option value="">Selecciona tu servidor</option>
+  <option *ngFor="let server of serverList" [value]="server.id" >{{server.serverName}}</option>
+</select>
+
 <div class="upper-buttons">
   <button mat-icon-button (click)="openAddProvider()">
     <mat-icon>add</mat-icon>

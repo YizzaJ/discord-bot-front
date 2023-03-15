@@ -24,6 +24,18 @@ export class MessageService {
     }
   }
 
+  async getServers(userID:string): Promise<any> {
+    const url = 'http://localhost:9999/servers/' + userID ;
+    try {
+      const response = await this.http.get(url).toPromise();
+      console.log(response);
+      return response;
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  }
+
   // getProviders2(serverID:string) {
   //   return this.http.get<any[]>('http://localhost:9999/' + serverID + '/providers');
   // }

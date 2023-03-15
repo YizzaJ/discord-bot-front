@@ -22,7 +22,7 @@
       <mat-sidenav-content class="content">
         <app-add-provider *ngIf="showAddProvider"></app-add-provider>
         <app-max-news *ngIf="showMaxNews"></app-max-news>
-        <app-provider-table *ngIf="showManagement" [serverID]=serverID></app-provider-table>
+        <app-provider-table *ngIf="showManagement" [userID]=userID></app-provider-table>
 
       </mat-sidenav-content>
     </mat-sidenav-container>

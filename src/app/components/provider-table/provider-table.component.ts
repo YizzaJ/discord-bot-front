@@ -13,16 +13,33 @@ import { RemoveProviderComponent } from '../remove-provider/remove-provider.comp
 export class ProviderTableComponent {
   displayedColumns: string[] = ['webSiteName', 'webSite', 'modify', 'delete'];
   data: any[] = [];
-  @Input() serverID = ""
+  @Input() userID = "";
+  serverList: { id: string, serverName: string }[] = [];
+  serverID = "";
 
-  constructor(private apiService: MessageService, private dialog: MatDialog) { }
+  constructor(private messageService: MessageService, private dialog: MatDialog) { }
 
   async ngOnInit() {
-    this.data = await this.apiService.getProviders(this.serverID).catch(error => {
-      console.error('Error obteniendo proveedores ', error);
+    this.loadServers();
+  }
+
+  async loadServers() {
+    this.serverList = await this.messageService.getServers(this.userID).catch(error => {
+      console.error('Error obteniendo servidores ', error);
     });
   }
 
+  async loadTable(serverID: string) {
+    if (serverID != "") {
+      console.log(serverID)
+      this.serverID = serverID;
+      this.data = await this.messageService.getProviders(serverID).catch(error => {
+        console.error('Error obteniendo proveedores ', error);
+      });
+    }else{
+      this.data = [];
+    }
+  }
 
   async openAddProvider() {
     const dialogRef = this.dialog.open(AddProviderComponent, {
@@ -35,7 +52,7 @@ export class ProviderTableComponent {
 
     dialogRef.afterClosed().subscribe(() => {
       console.log('Dialog closed');
-      this.ngOnInit();
+      this.loadTable(this.serverID);
     });
 
   }
@@ -43,7 +60,7 @@ export class ProviderTableComponent {
   async openModifyProvider(provider: string) {
     console.log(provider)
     const dialogRef = this.dialog.open(ModifyProviderComponent, {
-      data: { serverID: this.serverID, provider:provider },
+      data: { serverID: this.serverID, provider: provider },
       width: '80%',
       height: '80%',
       panelClass: 'dialog-add'
@@ -52,7 +69,7 @@ export class ProviderTableComponent {
 
     dialogRef.afterClosed().subscribe(() => {
       console.log('Dialog closed');
-      this.ngOnInit();
+      this.loadTable(this.serverID);
     });
 
 
@@ -60,7 +77,7 @@ export class ProviderTableComponent {
 
   async deleteProvider(provider: string) {
     const dialogRef = this.dialog.open(RemoveProviderComponent, {
-      data: { serverID: this.serverID, provider:provider },
+      data: { serverID: this.serverID, provider: provider },
       width: '25%',
       height: '25%',
       panelClass: 'dialog-add'
@@ -69,7 +86,7 @@ export class ProviderTableComponent {
 
     dialogRef.afterClosed().subscribe(() => {
       console.log('Dialog closed');
-      this.ngOnInit();
+      this.loadTable(this.serverID);
     });
 
 
