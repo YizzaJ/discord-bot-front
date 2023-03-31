@@ -1,37 +1,20 @@
-<!-- <div class="checklist">
-  <div class="check-item" [ngClass]="{ 'incorrect': isLink, 'empty': error === 'nothing', 'correct': !isLink && (error !== 'nothing')  }">
-      <span class="check-label">Link</span>
-      <i class="material-icons">done</i>
-    </div>
-    <div class="check-item" [ngClass]="{ 'incorrect': isArticle, 'empty': error === 'nothing' , 'correct': !isArticle && (error !== 'nothing') }">
-      <span class="check-label">Article</span>
-      <i class="material-icons">done</i>
-    </div>
-    <div class="check-item" [ngClass]="{ 'incorrect': isParagraph, 'empty': error === 'nothing' , 'correct': !isParagraph && (error !== 'nothing') }">
-      <span class="check-label">Paragraph</span>
-      <i class="material-icons">done</i>
-    </div>
-    <div class="check-item" [ngClass]="{ 'incorrect': isTopic, 'empty': error === 'nothing' , 'correct': !isTopic && (error !== 'nothing') }">
-      <span class="check-label">Topic</span>
-      <i class="material-icons">done</i>
-    </div>
-  </div> -->
-
-  <div class="checklist">
-    <div class="check-item" [ngClass]="{ 'incorrect': link, 'empty': error === 'nothing', 'correct': !link}">
-        <span class="check-label">Link</span>
-        <i class="material-icons">done</i>
-      </div>
-      <div class="check-item" [ngClass]="{ 'incorrect': article, 'empty': link , 'correct': !article && !link}">
-        <span class="check-label">Article</span>
-        <i class="material-icons">done</i>
-      </div>
-      <div class="check-item" [ngClass]="{ 'incorrect': paragraph, 'empty': article , 'correct': !paragraph && !article && !link}">
-        <span class="check-label">Paragraph</span>
-        <i class="material-icons">done</i>
-      </div>
-      <div class="check-item" [ngClass]="{ 'incorrect': topic, 'empty': paragraph, 'correct': !topic && !paragraph && !article && !link}">
-        <span class="check-label">Topic</span>
-        <i class="material-icons">done</i>
-      </div>
-    </div>
+<div class="checklist">
+  <div class="check-item" [ngClass]="{ 'incorrect': link, 'empty': error === 'nothing', 'correct': !link}">
+    <span class="check-label">Link</span>
+    <i class="material-icons">done</i>
+  </div>
+  <div class="check-item" [ngClass]="{ 'incorrect': article, 'empty': link , 'correct': !article && !link}">
+    <span class="check-label">Article</span>
+    <i class="material-icons">done</i>
+  </div>
+  <div class="check-item"
+    [ngClass]="{ 'incorrect': paragraph, 'empty': article , 'correct': !paragraph && !article && !link}">
+    <span class="check-label">Paragraph</span>
+    <i class="material-icons">done</i>
+  </div>
+  <div class="check-item"
+    [ngClass]="{ 'incorrect': topic, 'empty': paragraph, 'correct': !topic && !paragraph && !article && !link}">
+    <span class="check-label">Topic</span>
+    <i class="material-icons">done</i>
+  </div>
+</div>
