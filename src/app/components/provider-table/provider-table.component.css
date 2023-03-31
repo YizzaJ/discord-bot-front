@@ -1,7 +1,10 @@
 .provider-table{
     background-color: #263159;
     color: white;
+    background-color: #4752c4;
+    width: 300px;
 }
+
 
 .link-cell{
     color: white;
@@ -14,6 +17,7 @@
 .table-header{
     text-transform: uppercase;
     color: white;
+    background-color: #4752c4;
 }
 
 .upper-buttons{
@@ -25,4 +29,7 @@
     min-width: 300px;
 }
 
+.sub{
+    color: #777777;
+}
 
