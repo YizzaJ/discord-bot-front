@@ -1,5 +1,11 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
+body {
+  background-color: #1e1f22;
+  
+  color:white;
+  font-family: Verdana, sans-serif;
+}
 
 .sidenav-container {
   height: 100%;
@@ -10,11 +16,16 @@
 }
 
 .mat-mdc-dialog-container {
-  --mdc-dialog-container-color: #FFFBEB;
+  --mdc-dialog-container-color: #313338;
+}
+
+.mdc-dialog__surface::before {
+  content: none;
+  height: 0px;
 }
 
 button {
-  background-color: #263159;
+  background-color: #4752c4;
   color: #fff;
   padding: 5px;
   border: none;
@@ -35,11 +46,12 @@ button:disabled {
 input {
   font-size: 16px;
   padding: 10px;
-  border: 2px solid #ccc;
+  border: 2px solid #383a40;
   border-radius: 5px;
   background-color: #f5f5f5;
-  color: #333;
+  color: black;
   margin: 5px;
+  width: 90%;
 }
 
 input:focus {
@@ -58,6 +70,7 @@ input:disabled {
 label {
   margin-right: 3px;
   font-size: 20px;
+  color:white;
 }
 
 select {
@@ -91,7 +104,14 @@ select:focus {
 }
 
 h3{
-  font: Lucida Console;
+  font-family: Verdana, sans-serif;
+  color:white;
   font-size: 30px;
   margin-left: 2px;
+}
+
+.rounded {
+  border-radius: 5px;
+  width: 98%;
+  background-color: #ffffff;
 }
