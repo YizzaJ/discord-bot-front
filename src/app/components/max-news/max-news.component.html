@@ -1,14 +1,12 @@
 <div>
   <form #loginForm="ngForm">
-      <h3>Maximas noticias a mostrar.</h3>
+      <h3>Numero maximo de noticias a mostrar:</h3>
       <div>
-          <p>El numero debe estar entre 1 y 15.</p>
+          
       </div>
       <div>
-        <label>Numero:</label>
-        <!-- <input [(ngModel)]="maximums.private" name="maxPrivNews" type="number" min="1" max="15"> -->
-        <input [(ngModel)]="maximums.private" name="maxPrivNews" type="number" min="1" max="15" #maxPrivNews="ngModel">
-
+        <input [(ngModel)]="maximums.private" name="maxPrivNews" type="number" min="1" max="15" #maxPrivNews="ngModel" class="max">
+        <p class="sub" >Debe estar entre 1 y 15.</p>
       </div>
     </form>
     <button class="submit-button" (click)="submitPrivateForm()" [disabled]="loginForm.form.invalid || maxPrivNews.invalid || maximums.private > 15">Submit</button>

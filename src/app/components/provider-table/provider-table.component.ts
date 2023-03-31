@@ -44,7 +44,7 @@ export class ProviderTableComponent {
   async openAddProvider() {
     const dialogRef = this.dialog.open(AddProviderComponent, {
       data: { serverID: this.serverID },
-      width: '80%',
+      width: '50%',
       height: '80%',
       panelClass: 'dialog-add'
 
@@ -61,7 +61,7 @@ export class ProviderTableComponent {
     console.log(provider)
     const dialogRef = this.dialog.open(ModifyProviderComponent, {
       data: { serverID: this.serverID, provider: provider },
-      width: '80%',
+      width: '50%',
       height: '80%',
       panelClass: 'dialog-add'
 
