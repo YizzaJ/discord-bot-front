@@ -1,146 +1,93 @@
-<div>
-  <form #loginForm="ngForm">
-    <h3>Website</h3>
-    <div>
-      <label>Link:</label>
-      <input [(ngModel)]="provider.webSite" name="websiteLink" required>
-    </div>
-    <div>
-      <label>Name:</label>
-      <input [(ngModel)]="provider.webSiteName" name="websiteName" required>
-    </div>
-
-    <h3>Article</h3>
-    <div>
-      <label>Type:</label>
-      <select [(ngModel)]="provider.tipoArticulo" (change)="toggleArticle(provider.tipoArticulo)"
-        name="providerArticleType" >
-        <option value="">Select</option>
-        <option value="Tag">Tag</option>
-        <option value="Class">Class</option>
-        <option value="Attribute">Attribute</option>
-      </select>
-    </div>
-    <div>
-      <label>Value:</label>
-      <input [disabled]="!showArticleValue" [(ngModel)]="provider.valorArticulo" name="providerArticleValue" required>
-    </div>
-    <div>
-      <label>Attribute Name:</label>
-      <input [disabled]="!showArticleAttributeName" [(ngModel)]="provider.attributeNameArticulo"
-        name="providerArticleAttributeName" required>
-    </div>
-
-    <h3>Paragraph</h3>
-    <div>
-      <label>Type:</label>
-      <select [(ngModel)]="provider.tipoParrafo" (change)="toggleParagraph(provider.tipoParrafo)" name="providerParagraphType" >
-        <option value="">Select</option>
-        <option value="Tag">Tag</option>
-        <option value="Class">Class</option>
-        <option value="Attribute">Attribute</option>
-      </select>
-    </div>
-    <div>
-      <label>Value:</label>
-      <input [disabled]="!showParagraphValue" [(ngModel)]="provider.valorParrafo" name="providerParagraphValue" required>
-    </div>
-    <div>
-      <label>Attribute Name:</label>
-      <input [disabled]="!showParagraphAttributeName" [(ngModel)]="provider.attributeNameParrafo" name="providerParagraphAttributeName" required>
-    </div>
-
-    <h3>Topic</h3>
-    <div>
-      <label>Type:</label>
-      <select [(ngModel)]="provider.tipoTopic" (change)="toggleTopic(provider.tipoTopic)" name="providerTopicType" >
-        <option value="">Select</option>
-        <option value="Tag">Tag</option>
-        <option value="Class">Class</option>
-        <option value="Attribute">Attribute</option>
-      </select>
-    </div>
-    <div>
-      <label>Value:</label>
-      <input [disabled]="!showTopicValue" [(ngModel)]="provider.valorTopic" name="providerTopicValue" required>
-    </div>
-    <div>
-      <label>Attribute Name:</label>
-      <input [disabled]="!showTopicAttributeName" [(ngModel)]="provider.attributeNameTopic" name="providerTopicAttributeName" required>
-    </div>
-  </form>
-  <app-checks [error]=error *ngIf="showChecks"></app-checks>
-  <button class="submit-button" (click)="submitForm()" *ngIf="showChecks">Comprobar de nuevo</button>
-  <button class="submit-button" (click)="submitForm()" [disabled]="loginForm.form.invalid">Submit</button>
-</div>
-
-
-<!-- <div>
-  <form #loginForm="ngForm">
-      <h3>Website</h3>
+<div class="background">
+  <div class="container">
+    <form #loginForm="ngForm">
+      <h3>Sitio web del proveedor de noticias</h3>
       <div>
         <label>Link:</label>
-        <input [(ngModel)]="provider.webSite" name="websiteLink">
       </div>
+      <input [(ngModel)]="provider.webSite" name="websiteLink" required>
+
       <div>
-        <label>Name:</label>
-        <input [(ngModel)]="provider.webSiteName" name="websiteName">
+        <label>Nombre:</label>
       </div>
-      <h3>Article</h3>
+      <input [(ngModel)]="provider.webSiteName" name="websiteName" required>
+
+      <hr class="rounded">
+      <h3>Noticias</h3>
+      <p class="sub" >Selecciona la manera en la que se muestran las noticias del proveedor.</p>
       <div>
-        <label>Type:</label>
-        <select [(ngModel)]="provider.tipoArticulo" (change)="toggleArticle(provider.tipoArticulo)" name="providerType">
-          <option value="">Select</option>
+        <label>Tipo:</label>
+        <select [(ngModel)]="provider.tipoArticulo" (change)="toggleArticle(provider.tipoArticulo)"
+          name="providerArticleType">
+          <option value="">Seleccionar</option>
           <option value="Tag">Tag</option>
           <option value="Class">Class</option>
-          <option value="Attribute">Attribute</option>
+          <option value="Attribute">Attributo</option>
         </select>
       </div>
-      <div *ngIf="showArticleAttributeName">
-        <label>Attribute Name:</label>
-        <input [(ngModel)]="provider.attributeNameArticulo" name="providerAttributeName" required>
-      </div>
-      <div *ngIf="showArticleValue">
-        <label>Value:</label>
-        <input [(ngModel)]="provider.valorArticulo" name="providerValue" required>
-      </div>
-      <h3>Paragraph</h3>
       <div>
-        <label>Type:</label>
-        <select [(ngModel)]="provider.tipoParrafo" (change)="toggleParagraph(provider.tipoParrafo)" name="providerType">
-          <option value="">Select</option>
+        <label>Valor:</label>
+      </div>
+      <input [disabled]="!showArticleValue" [(ngModel)]="provider.valorArticulo" name="providerArticleValue" required>
+
+      <div>
+        <label>Nombre del atributo:</label>
+      </div>
+      <input [disabled]="!showArticleAttributeName" [(ngModel)]="provider.attributeNameArticulo"
+        name="providerArticleAttributeName" required>
+
+      <hr class="rounded">
+      <h3>Primer parrafo</h3>
+      <p class="sub" >Selecciona la manera en la que se muestra el primer parrafo dentro de las noticias.</p>
+      <div>
+        <label>Tipo:</label>
+        <select [(ngModel)]="provider.tipoParrafo" (change)="toggleParagraph(provider.tipoParrafo)"
+          name="providerParagraphType">
+          <option value="">Seleccionar</option>
           <option value="Tag">Tag</option>
           <option value="Class">Class</option>
-          <option value="Attribute">Attribute</option>
+          <option value="Attribute">Attributo</option>
         </select>
       </div>
-      <div *ngIf="showParagraphAttributeName">
-        <label>Attribute Name:</label>
-        <input [(ngModel)]="provider.attributeNameParrafo" name="providerAttributeName" required>
-      </div>
-      <div *ngIf="showParagraphValue">
-        <label>Value:</label>
-        <input [(ngModel)]="provider.valorParrafo" name="providerValue" required>
-      </div>
-      <h3>Topic</h3>
       <div>
-        <label>Type:</label>
-        <select [(ngModel)]="provider.tipoTopic"  (change)="toggleTopic(provider.tipoTopic)"name="providerType">
-          <option value="">Select</option>
+        <label>Valor:</label>
+      </div>
+      <input [disabled]="!showParagraphValue" [(ngModel)]="provider.valorParrafo" name="providerParagraphValue"
+        required>
+
+      <div>
+        <label>Nombre del atributo:</label>
+      </div>
+      <input [disabled]="!showParagraphAttributeName" [(ngModel)]="provider.attributeNameParrafo"
+        name="providerParagraphAttributeName" required>
+
+      <hr class="rounded">
+      <h3>Categorias</h3>
+      <p class="sub" >Selecciona la manera en la que se muestran las categorias de noticias del proveedor.</p>
+      <div>
+        <label>Tipo:</label>
+        <select [(ngModel)]="provider.tipoTopic" (change)="toggleTopic(provider.tipoTopic)" name="providerTopicType">
+          <option value="">Seleccionar</option>
           <option value="Tag">Tag</option>
           <option value="Class">Class</option>
-          <option value="Attribute">Attribute</option>
+          <option value="Attribute">Attributo</option>
         </select>
       </div>
-      <div *ngIf="showTopicAttributeName">
-        <label>Attribute Name:</label>
-        <input [(ngModel)]="provider.attributeNameTopic" name="providerAttributeName" required>
+      <div>
+        <label>Valor:</label>
       </div>
-      <div *ngIf="showTopicValue">
-        <label>Value:</label>
-        <input [(ngModel)]="provider.valorTopic" name="providerValue" required>
+      <input [disabled]="!showTopicValue" [(ngModel)]="provider.valorTopic" name="providerTopicValue" required>
+
+      <div>
+        <label>Nombre del atributo:</label>
       </div>
-  </form>
-  <button (click)="submitForm()" [disabled]="loginForm.form.invalid">Submit</button>
-  <app-checks [error]=error *ngIf="showChecks"></app-checks>
-</div> -->
+      <input [disabled]="!showTopicAttributeName" [(ngModel)]="provider.attributeNameTopic"
+        name="providerTopicAttributeName" required>
+
+    </form>
+    <app-checks [error]=error *ngIf="showChecks"></app-checks>
+    <button class="submit-button" (click)="submitForm()" *ngIf="showChecks">Comprobar de nuevo</button>
+    <button class="submit-button" (click)="submitForm()" [disabled]="loginForm.form.invalid">Submit</button>
+  </div>
+</div>
+
