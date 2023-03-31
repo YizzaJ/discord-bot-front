@@ -1,9 +1,10 @@
-<div>
-    <h1 class="header">Bienvenido a NotiBot</h1>
-    
-    <button class="discord" onclick="location.href=authUrl">
-        <a [href]="authUrl" class="link">Iniciar sesion con Discord</a>
+<div class="circle"></div>
+<div class="form">
+    <div class="title">Bienvenido a NOTIBOT</div>
+    <img src="assets/Images/Logo.png" alt="image">
+    <hr class="rounded">
+    <div class="subtitle">Se debe iniciar sesion con Discord.</div>
+    <button class="submit" (click)="login()">
+        Iniciar sesion
     </button>
-
-    <img src="assets/Images/Logo.png" alt="Logo" class="logo">
 </div>

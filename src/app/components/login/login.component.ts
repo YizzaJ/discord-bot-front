@@ -13,5 +13,9 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
     constructor( @Inject(AuthenticationService) private auth : AuthenticationService) {
       this.authUrl = this.auth.getAuthUrl();
     }
+
+    login(): void {
+      window.location.href = this.authUrl;
+    }
   }
   
