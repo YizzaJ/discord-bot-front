@@ -1,0 +1,30 @@
+.help-content{
+    background-color: #313338;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #2b2d31;
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #2b2d31;
+  }
+
+  .title{
+    color: white;
+    font: Lucida Console;
+    font-size: 30px;
+    margin-left: 10px;
+  }
+
+  .logo{
+    height: 80%;
+  }

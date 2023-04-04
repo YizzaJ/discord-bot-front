@@ -29,6 +29,7 @@ import { DialogComponent } from './shared/dialog/dialog.component';
 import { RemoveProviderComponent } from './components/remove-provider/remove-provider.component';
 import { ChecksComponent } from './shared/checks/checks.component';
 import { LoginComponent } from './components/login/login.component';
+import { InfoComponent } from './shared/info/info.component';
 
 
 
@@ -46,7 +47,8 @@ import { LoginComponent } from './components/login/login.component';
     ModifyProviderComponent,
     DialogComponent,
     RemoveProviderComponent,
-    ChecksComponent
+    ChecksComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
