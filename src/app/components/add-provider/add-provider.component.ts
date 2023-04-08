@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { MessageService } from 'src/app/services/message-service/message-service.service';
 
 @Component({
@@ -60,12 +61,18 @@ provider = {
 
 };
 
-  constructor(private dialogRef: MatDialogRef<AddProviderComponent>,
+  constructor(private router: Router,
+    private dialogRef: MatDialogRef<AddProviderComponent>,
     private messageService: MessageService,
     @Inject(MAT_DIALOG_DATA) public data: { serverID: string}) { }
 
   ngOnInit() {
     // this.toggleArticle(this.provider.tipoArticulo);
+  }
+
+  openHelp() {
+    const url = this.router.createUrlTree(['/help']);
+    window.open(url.toString(), '_blank');
   }
 
   toggleArticle(category: string) {

@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { MessageService } from 'src/app/services/message-service/message-service.service';
 
 @Component({
@@ -40,19 +41,18 @@ export class ModifyProviderComponent implements OnInit {
 
   };
 
-
-
-
-
-  constructor(private dialogRef: MatDialogRef<ModifyProviderComponent>,
+  constructor(private router: Router,
+    private dialogRef: MatDialogRef<ModifyProviderComponent>,
     private messageService: MessageService,
     @Inject(MAT_DIALOG_DATA) public data: { serverID: string, provider: any }) {
     this.provider = data.provider;
 
   }
 
-
-
+  openHelp() {
+    const url = this.router.createUrlTree(['/help']);
+    window.open(url.toString(), '_blank');
+  }
 
   ngOnInit() {
     this.newProvider.webSite = this.data.provider.webSite;
