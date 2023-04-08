@@ -1,3 +1,4 @@
+<h3>Gestión de proveedores:</h3>
 <select [(ngModel)]="serverID" (change)="loadTable(serverID)" class="server-select">
   <option value="">Selecciona tu servidor</option>
   <option *ngFor="let server of serverList" [value]="server.id">{{server.serverName}}</option>
