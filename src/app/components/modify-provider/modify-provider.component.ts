@@ -134,8 +134,6 @@ export class ModifyProviderComponent implements OnInit {
   async submitForm() {
 
     var jsonProvider = JSON.stringify(this.provider, null, 2)
-
-    console.log(jsonProvider);
     
     try {
       await this.messageService.modifyProvider(this.data.serverID, jsonProvider);

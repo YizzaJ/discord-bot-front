@@ -15,7 +15,6 @@ export class ChecksComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log(this.error)
     switch (this.error) {
       case 'topic':
         this.topic = true;
@@ -31,8 +30,6 @@ export class ChecksComponent implements OnInit {
         break;
       case 'link':
         this.link = true;
-
-        console.log("caso link")
         break;
     }
   }

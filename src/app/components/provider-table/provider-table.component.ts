@@ -31,7 +31,6 @@ export class ProviderTableComponent {
 
   async loadTable(serverID: string) {
     if (serverID != "") {
-      console.log(serverID)
       this.serverID = serverID;
       this.data = await this.messageService.getProviders(serverID).catch(error => {
         console.error('Error obteniendo proveedores ', error);
@@ -51,14 +50,12 @@ export class ProviderTableComponent {
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      console.log('Dialog closed');
       this.loadTable(this.serverID);
     });
 
   }
 
   async openModifyProvider(provider: string) {
-    console.log(provider)
     const dialogRef = this.dialog.open(ModifyProviderComponent, {
       data: { serverID: this.serverID, provider: provider },
       width: '50%',
@@ -68,7 +65,6 @@ export class ProviderTableComponent {
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      console.log('Dialog closed');
       this.loadTable(this.serverID);
     });
 
@@ -85,7 +81,6 @@ export class ProviderTableComponent {
     });
 
     dialogRef.afterClosed().subscribe(() => {
-      console.log('Dialog closed');
       this.loadTable(this.serverID);
     });
 

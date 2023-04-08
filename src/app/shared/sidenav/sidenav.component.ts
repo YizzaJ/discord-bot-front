@@ -38,12 +38,10 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit(): void {
     const code = this.route.snapshot.queryParamMap.get('code');
-    console.log("TOKEN" + code)
     if (code) {
       this.authService.exchangeCodeForToken(code)
         .then(async token => {
           localStorage.setItem('discordToken', token); 
-          console.log("TOKEN" + token);
 
           const userInfo = await this.authService.getUserInfo(token);
           this.saveUserInfo(userInfo);

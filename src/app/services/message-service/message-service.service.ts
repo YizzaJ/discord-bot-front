@@ -16,7 +16,6 @@ export class MessageService {
     const url = 'http://localhost:9999/providers/' + serverID + '/complete/';
     try {
       const response = await this.http.get(url).toPromise();
-      console.log(response);
       return response;
     } catch (err) {
       console.error(err);
@@ -28,10 +27,8 @@ export class MessageService {
     const url = 'http://localhost:9999/servers/' + userID ;
     try {
       const response = await this.http.get(url).toPromise();
-      console.log(response);
       return response;
     } catch (err) {
-      console.error(err);
       throw err;
     }
   }
@@ -40,13 +37,8 @@ export class MessageService {
     const url = 'http://localhost:9999/providers/' + serverID + "/";
     try {
       const response = await this.http.post(url, message).toPromise();
-      console.log(response);
       return response;
     } catch (err:any) {
-      console.log("Error .")
-      console.log(err.error);
-      console.error(err);
-      console.log("Error .")
       throw err;
     }
   }
@@ -55,20 +47,13 @@ export class MessageService {
     const url = 'http://localhost:9999/providers/' + serverID + "/";
     try {
       const response = await this.http.put(url, message).toPromise();
-      console.log(response);
       return response;
     } catch (err:any) {
-      console.log("Error .")
-      console.log(err.error);
-      console.error(err);
-      console.log("Error .")
       throw err;
     }
   }
-  
+
   async removeProvider(serverID : string, provider : string) {
-    console.log(serverID)
-    console.log(provider)
 
     return this.http.post('http://localhost:9999/providers/remove/' + serverID + "/", provider).toPromise();
   }

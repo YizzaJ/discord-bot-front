@@ -27,7 +27,6 @@ export class AuthenticationService {
       .set('redirect_uri', this.redirectUri)
       .set('response_type', 'code')
       .set('scope', 'identify guilds');
-      console.log("REDIRECT" + this.alreadyRedirected)
       this.alreadyRedirected = true;
     return `${this.discordAuthUrl}?${params.toString()}`;
   }
@@ -42,7 +41,6 @@ export class AuthenticationService {
       .set('grant_type', 'authorization_code')
       .set('code', code)
       .set('redirect_uri', this.redirectUri);
-      console.log("CODIGO" + code)
     
     return this.http.post<any>(this.discordTokenUrl, params.toString(), { headers })
       .toPromise()
@@ -62,7 +60,7 @@ export class AuthenticationService {
     const url = `${this.discordApiUrl}/users/@me`;
     try {
       const response = await this.http.get(url, { headers }).toPromise();
-      console.log(response);
+
       return response;
     } catch (err) {
       console.error(err);
@@ -78,7 +76,6 @@ export class AuthenticationService {
     const url = `${this.discordApiUrl}/users/@me/guilds`;
     try {
       const response = await this.http.get(url, { headers }).toPromise();
-      console.log(response);
       return response;
     } catch (err) {
       console.error(err);
