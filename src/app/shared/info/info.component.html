@@ -18,16 +18,29 @@
             <ul>
                 <li>Abrir HTML de una página: simplemente debes hacer click derecho en el elemento que quieres extraer y
                     seleccionar "inspeccionar elemento."
+
                 </li>
+                <img src="assets/Images/Ex.png" class="example">
+
                 <li>Tag: nombre del elemento HTML.</li>
+                <img src="assets/Images/TagEx.png" class="example">
+                <p class="sub">En este caso, "article" es el tag de ese elemento HTML.</p>
+
                 <li>Class: clase del elemento HTML.</li>
+                <img src="assets/Images/ClassEx.png" class="example">
+                <p class="sub">La clase comienza con el nombre class (verde) y el contenido es lo que se encuentra en el recuadro rojo.</p>
+
                 <li>Atributo: otra información que contiene el elemento HTML.
-                    <p class="sub">Nota: los no funcionan como atributos.</p>
+                    <p class="sub">Nota: los "cmp-ltrk...." no funcionan como atributos.</p>
                 </li>
+                <img src="assets/Images/AttributeEx.png" class="example">
+                <p class="sub">En este caso, "ue-article-id" es un atributo de ese elemento HTML y
+                     el contenido es lo que se encuentra en el recuadro rojo.</p>
             </ul>
             <p>Se te dará la opción de escoger entre Tag, Class o Atributo para añadir distintos elementos del
                 proveedor.
-                Puedes escoger cualquiera de los tres. Luego, la aplicación realizará una comprobación para evaluar si se
+                Puedes escoger cualquiera de los tres. Luego, la aplicación realizará una comprobación para evaluar si
+                se
                 obtiene algún elemento.
             </p>
             <p class="sub">También se pueden dejar vacios (dejando la opción "Seleccionar") y la aplicacin intentará
@@ -39,16 +52,17 @@
         <hr class="rounded">
         <div class="section" id="section-article">
             <h2>Noticias</h2>
-            <p >Esto se refiere a las noticias que se muestran en la página principal del proveedor.
+            <p>Esto se refiere a las noticias que se muestran en la página principal del proveedor.
             </p>
-            <p class="sub">Para las noticias, si tienen el Tag "article", preferiblemente se escoge esta opción ya que es la que
+            <p class="sub">Para las noticias, si tienen el Tag "article", preferiblemente se escoge esta opción ya que
+                es la que
                 mejor funciona.
             </p>
         </div>
         <hr class="rounded">
         <div class="section" id="section-paragraph">
             <h2>Primer párrafo</h2>
-            <p >Esto se refiere al primer contenido que se encuentra dentro de cualquier noticia.
+            <p>Esto se refiere al primer contenido que se encuentra dentro de cualquier noticia.
             </p>
             <p class="sub">Este será el texto que se muestre en Discord para cada noticia.
             </p>
@@ -56,11 +70,12 @@
         <hr class="rounded">
         <div class="section" id="section-topics">
             <h2>Categorías</h2>
-            <p >Esto se refiere a algún elemento que se encuentre en la lista de categorías de noticias.
+            <p>Esto se refiere a algún elemento que se encuentre en la lista de categorías de noticias.
             </p>
             <p class="sub">Normalmente se encuentran debajo del título del proveedor y muestra diferentes opciones.
             </p>
         </div>
         <hr class="rounded">
     </div>
-    <mat-toolbar class="footer"><app-user [image]=image [name]=name [discriminator]=discriminator></app-user></mat-toolbar>
+    <mat-toolbar class="footer"><app-user [image]=image [name]=name
+            [discriminator]=discriminator></app-user></mat-toolbar>
