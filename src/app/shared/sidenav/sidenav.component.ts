@@ -42,15 +42,11 @@ export class SidenavComponent implements OnInit {
     if (code) {
       this.authService.exchangeCodeForToken(code)
         .then(async token => {
-          localStorage.setItem('discordToken', token); // Almacenamos el token de acceso en el almacenamiento local para su uso posterior
+          localStorage.setItem('discordToken', token); 
           console.log("TOKEN" + token);
 
           const userInfo = await this.authService.getUserInfo(token);
           this.saveUserInfo(userInfo);
-          // this.name = userInfo.username
-          // this.image = "https://cdn.discordapp.com/avatars/" + userInfo.id + "/" + userInfo.avatar + ".png"
-
-  
         })
         .catch(error => {
           console.error('Error intercambiando código por token', error);

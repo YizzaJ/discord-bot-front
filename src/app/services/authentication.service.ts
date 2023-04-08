@@ -9,9 +9,9 @@ export class AuthenticationService {
   private readonly discordAuthUrl = 'https://discord.com/api/oauth2/authorize';
   private readonly discordTokenUrl = 'https://discord.com/api/oauth2/token';
   private readonly discordApiUrl = 'https://discord.com/api';
-  private readonly redirectUri = 'http://localhost:4200/home'; // Esta es la URL de redirección que especificaste en la página de configuración de Discord
-  private readonly clientId = '1059824005953097738'; // Reemplaza esto con el Client ID de tu aplicación Discord
-  private readonly clientSecret = '0m4cVKWMp4VaaTN-73b_shRh4SjpmAnD'; // Reemplaza esto con el Client Secret de tu aplicación Discord
+  private readonly redirectUri = 'http://localhost:4200/home'; 
+  private readonly clientId = '1059824005953097738'; 
+  private readonly clientSecret = '0m4cVKWMp4VaaTN-73b_shRh4SjpmAnD'; 
 
   alreadyRedirected = false;
 
@@ -21,11 +21,6 @@ export class AuthenticationService {
     return this.alreadyRedirected;
   }
 
-  // change(){
-  //   this.alreadyRedirected = false;
-  // }
-
-  // Esta función genera la URL de autorización de Discord para redirigir al usuario a Discord
   getAuthUrl(): string {
     const params = new HttpParams()
       .set('client_id', this.clientId)
@@ -37,7 +32,6 @@ export class AuthenticationService {
     return `${this.discordAuthUrl}?${params.toString()}`;
   }
 
-  // Esta función intercambia el código de autorización de Discord por un token de acceso
   exchangeCodeForToken(code: string): Promise<string> {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/x-www-form-urlencoded');
@@ -59,27 +53,6 @@ export class AuthenticationService {
       });
   }
 
-  // getUserInfo(accessToken: string): string {
-  //   const headers = new HttpHeaders({
-  //     Authorization: `Bearer ${accessToken}`
-  //   });
-  
-  //   const url = `${this.discordApiUrl}/users/@me`;
-  //   let aux = "";
-  //   this.http.get(url, { headers }).subscribe({
-  //     next: (data) => {
-  //       console.log(data);
-
-  //       aux = data.toString();
-  //       return data;
-  //     },
-  //     error: (err) => {
-  //       console.error(err);
-  //       return err;
-  //     }
-  //   });
-  //   return aux;
-  // }
 
   async getUserInfo(accessToken: string): Promise<any> {
     const headers = new HttpHeaders({
@@ -112,24 +85,4 @@ export class AuthenticationService {
       throw err;
     }
   }
-
-  // getUserServers(accessToken: string) {
-  //   const headers = new HttpHeaders({
-  //     Authorization: `Bearer ${accessToken}`
-  //   });
-  
-  //   const url = `${this.discordApiUrl}/users/@me/guilds`;
-  
-  //   this.http.get(url, { headers }).subscribe({
-  //     next: (data) => {
-  //       console.log(data);
-  //       return data;
-  //     },
-  //     error: (err) => {
-  //       console.error(err);
-  //     }
-  //   });
-  // }
-
-
 }

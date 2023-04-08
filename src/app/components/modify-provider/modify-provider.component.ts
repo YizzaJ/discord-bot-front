@@ -131,21 +131,6 @@ export class ModifyProviderComponent implements OnInit {
 
   }
 
-
-
-
-  // async submitForm() {
-
-
-  //   var jsonProvider = JSON.stringify(this.newProvider, null, 2)
-
-  //   console.log(jsonProvider);
-
-  //   await this.messageService.modifyProvider(this.data.serverID, jsonProvider);
-  //   this.dialogRef.close(true);
-  // }
-
-
   async submitForm() {
 
     var jsonProvider = JSON.stringify(this.provider, null, 2)

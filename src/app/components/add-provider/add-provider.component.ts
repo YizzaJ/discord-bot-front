@@ -19,47 +19,47 @@ export class AddProviderComponent implements OnInit {
   error = "nothing";
   showChecks = false;
 
-//   provider = {
-//     webSite: '',
-//     webSiteName: '',
+  provider = {
+    webSite: '',
+    webSiteName: '',
 
-//     usoArticulo: 'Article',
-//     tipoArticulo: '',
-//     attributeNameArticulo: '',
-//     valorArticulo: '',
+    usoArticulo: 'Article',
+    tipoArticulo: '',
+    attributeNameArticulo: '',
+    valorArticulo: '',
 
-//     usoParrafo: 'FirstParagraph',
-//     tipoParrafo: '',
-//     attributeNameParrafo: '',
-//     valorParrafo: '',
+    usoParrafo: 'FirstParagraph',
+    tipoParrafo: '',
+    attributeNameParrafo: '',
+    valorParrafo: '',
   
-//     usoTopic: 'Topic',
-//     tipoTopic: '',
-//     attributeNameTopic: '',
-//     valorTopic: ''
+    usoTopic: 'Topic',
+    tipoTopic: '',
+    attributeNameTopic: '',
+    valorTopic: ''
   
-// };
-
-provider = {
-  webSite: 'https://www.antena3.com/noticias/',
-  webSiteName: 'Antena 3',
-
-  usoArticulo: 'Article',
-  tipoArticulo: 'Tag',
-  attributeNameArticulo: '',
-  valorArticulo: 'article',
-
-  usoParrafo: 'FirstParagraph',
-  tipoParrafo: 'Class',
-  attributeNameParrafo: '',
-  valorParrafo: 'article-main__description',
-
-  usoTopic: 'Topic',
-  tipoTopic: 'Class',
-  attributeNameTopic: '',
-  valorTopic: 'menu-main__link menu-main__link--level1'
-
 };
+
+// provider = {
+//   webSite: 'https://www.antena3.com/noticias/',
+//   webSiteName: 'Antena 3',
+
+//   usoArticulo: 'Article',
+//   tipoArticulo: 'Tag',
+//   attributeNameArticulo: '',
+//   valorArticulo: 'article',
+
+//   usoParrafo: 'FirstParagraph',
+//   tipoParrafo: 'Class',
+//   attributeNameParrafo: '',
+//   valorParrafo: 'article-main__description',
+
+//   usoTopic: 'Topic',
+//   tipoTopic: 'Class',
+//   attributeNameTopic: '',
+//   valorTopic: 'menu-main__link menu-main__link--level1'
+
+// };
 
   constructor(private router: Router,
     private dialogRef: MatDialogRef<AddProviderComponent>,
@@ -67,7 +67,7 @@ provider = {
     @Inject(MAT_DIALOG_DATA) public data: { serverID: string}) { }
 
   ngOnInit() {
-    // this.toggleArticle(this.provider.tipoArticulo);
+    this.toggleArticle(this.provider.tipoArticulo);
   }
 
   openHelp() {

@@ -37,32 +37,4 @@ export class ChecksComponent implements OnInit {
     }
   }
 
-
-  // get isLink(): boolean {
-  //   const is = this.error === 'link'
-  //   if (is)
-  //     this.error = 'nothing'
-  //   return is;
-  // }
-
-  // get isArticle(): boolean {
-  //   const is = this.error === 'article'
-  //   if (is)
-  //     this.error = 'nothing'
-  //   return is;
-  // }
-
-  // get isParagraph(): boolean {
-  //   const is = this.error === 'paragraph'
-  //   if (is)
-  //     this.error = 'nothing'
-  //   return is;;
-  // }
-
-  // get isTopic(): boolean {
-  //   const is = this.error === 'error'
-  //   if (is)
-  //     this.error = 'nothing'
-  //   return is;
-  // }
 }
