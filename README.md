@@ -1,4 +1,4 @@
-# News Bot for Discord TFG: discord-bot-backend
+# News Bot for Discord TFG: discord-bot-front
 
 This respository contains the frontend code using Angular for my TFG.
 
