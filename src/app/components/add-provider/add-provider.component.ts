@@ -138,6 +138,8 @@ export class AddProviderComponent implements OnInit {
     try{
     await this.messageService.addProvider(this.data.serverID, jsonProvider);
     this.showChecks = true;
+    this.showChecks = false;
+    this.showChecks = true;
     this.dialogRef.close(true);
     }catch(err:any ){
       console.error('Error anadiendo proveedor', err);
