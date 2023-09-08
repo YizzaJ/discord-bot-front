@@ -1,4 +1,6 @@
-# DiscordBot
+# News Bot for Discord TFG: discord-bot-backend
+
+This respository contains the frontend code using Angular for my TFG.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
